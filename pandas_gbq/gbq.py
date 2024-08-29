@@ -582,6 +582,7 @@ def _bqschema_to_nullsafe_dtypes(schema_fields):
         "FLOAT": np.dtype(float),
         "INTEGER": "Int64",
         "TIME": db_dtypes.TimeDtype(),
+        "NUMERIC": np.dtype(float),
         # Note: Other types such as 'datetime64[ns]' and db_types.DateDtype()
         # are not included because the pandas range does not align with the
         # BigQuery range. We need to attempt a conversion to those types and
