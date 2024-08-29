@@ -24,8 +24,11 @@ steps:
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
+    pip install wheel twine build
   displayName: 'Install dependencies'
-
+- script: |
+    python -m build .
+  displayName: Build
 - task: TwineAuthenticate@1
   inputs:
     artifactFeed: rmbsfeed
